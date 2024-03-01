@@ -8,7 +8,7 @@ const connectToDb = require('./config/DBConfig');
 const app = express();
 
 // dependencies
-// const authRoutes = require('./api/routes/auth.route');
+const authRoutes = require('./api/routes/auth.route');
 
 // connect to database
 connectToDb();
@@ -16,6 +16,7 @@ connectToDb();
 // middlewares
 app.use(cors());
 app.use(express.json());
+app.use('/api/auth', authRoutes);
 
 // routes
 
