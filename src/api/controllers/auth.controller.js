@@ -105,10 +105,12 @@ const signUpWithOtp = async (req, res) => {
 				message: `Hashing password error for ${password}: ` + error.message,
 			});
 		}
+
 		const newUser = await User.create({
 			email,
 			password: hashedPassword,
 		});
+
 		return res.status(201).json({
 			success: true,
 			message: 'User registered successfully',
